@@ -51,6 +51,15 @@ class api_fetch_fun {
       return false
     }
   }
+  async get_single(api) {
+    try {
+      const response = await fetch(api);
+      console.log(response);
+      return response.json()
+    } catch (e) {
+      return false
+    }
+  }
   async update(api, obj) {
     try {
       const response = await fetch(api, {

@@ -8,6 +8,7 @@ import client_api from "@/utility/api_fetch_fun";
 
 const HomePageContentEditComponent = ({ data }) => {
 
+
   useEffect(() => {
     const fetchData = async () => {
       if (!!data === false) {
@@ -87,7 +88,7 @@ const HomePageContentEditComponent = ({ data }) => {
     let profile_shape_counter = profile_shape_counterRef.value;
     let profile_shape_text = profile_shape_textRef.value;
 
-    await client_api.update("/api/dashboard/home_page/update", {
+    client_api.update("/api/dashboard/home_page/update", {
       top_section_subTitleColor,
       top_section_subTitle,
       top_section_heading_title_1,
