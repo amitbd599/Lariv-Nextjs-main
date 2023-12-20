@@ -11,7 +11,7 @@ import { post_method } from "@/utility/api_fetch_fun";
 import React, { useEffect, useRef, useState } from "react";
 import { Toaster } from "react-hot-toast";
 
-const LoginComponent = () => {
+const LoginComponent = ({ data }) => {
   const [submit, setSubmit] = useState(false);
   // const router = useRouter();
   let emailRef,
@@ -42,12 +42,12 @@ const LoginComponent = () => {
       ErrorToast("Password Required");
     }else{
       post_method("/api/user/login").then((res)=>{
-        if(res){
-          console.log(res.data);
-          SuccessToast("Login success!")
+        if (res?.data?.status === true) {
+          SuccessToast("Login Success!");
+          router.replace("/dashboard");
           setSubmit(false);
-        }else{
-          ErrorToast("Invalid Email or Password")
+        } else {
+          ErrorToast("Something fail");
           setSubmit(false);
         }
       })
