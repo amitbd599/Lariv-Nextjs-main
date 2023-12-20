@@ -7,11 +7,11 @@ import {
   SuccessToast,
 } from "@/utility/FormHelper";
 import { post_method } from "@/utility/api_fetch_fun";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 import { Toaster } from "react-hot-toast";
 
-const LoginComponent = ({ data }) => {
+const LoginComponent = () => {
   const [submit, setSubmit] = useState(false);
   // const router = useRouter();
   let emailRef,

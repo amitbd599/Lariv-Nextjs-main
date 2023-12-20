@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Spinner } from "@material-tailwind/react";
+
 const SubmitButton = (props) => {
   if (props?.submit === false) {
     return (
@@ -14,7 +14,7 @@ const SubmitButton = (props) => {
         disabled={true}
         className="btn flex gap-3 hover:bg-theme cursor-not-allowed"
       >
-        Loading <Spinner />
+        Loading 
       </button>
     );
   }
