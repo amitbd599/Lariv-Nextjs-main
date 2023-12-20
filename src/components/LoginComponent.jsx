@@ -35,13 +35,15 @@ const LoginComponent = ({ data }) => {
 
     if (IsEmail(email)) {
       ErrorToast("Valid Email Address Required");
+      setSubmit(false);
     } else if (IsEmpty(email)) {
       ErrorToast("Email Address Required");
+      setSubmit(false);
     } else if (IsEmpty(password)) {
       ErrorToast("Password Required");
+      setSubmit(false);
     } else {
       client_api.login({ email, password }).then((res) => {
-        console.log(res);
         if (res?.status === true) {
           SuccessToast("Login Success!");
           router.replace("/dashboard");
