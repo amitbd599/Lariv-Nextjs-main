@@ -1,15 +1,30 @@
+let md5 = require("md5");
 import { PrismaClient } from "@prisma/client";
 import { NextResponse } from "next/server";
 
+import { CreateToken } from "@/utility/JWTTokenHelper";
+
 export async function POST(req, res) {
   try {
-    let prisma = new PrismaClient();
     let reqBody = await req.json();
-    let result = await prisma.profile.findMany();
+    let prisma = new PrismaClient();
+    reqBody.password = md5(reqBody.password);
 
-    console.log(result)
+    let result = await prisma.profile.findMany({
+      where: reqBody,
+    });
 
-    return NextResponse.json({ status: true, data: result });
+    if (result.length === 0) {
+      return NextResponse.json({ status: false, data: result });
+    } else {
+      let token = await CreateToken(result["email"], result["id"]);
+      const expirationDate = new Date(Date.now() + 24 * 60 * 60 * 1000);
+      const cookieString = `token=${token}; expires=${expirationDate.toUTCString()}; path=/`;
+      return NextResponse.json(
+        { status: true, data: token },
+        { status: 200, headers: { "set-cookie": cookieString } }
+      );
+    }
   } catch (e) {
     return NextResponse.json({ status: false, data: e.toString() });
   }

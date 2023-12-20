@@ -6,18 +6,26 @@ import {
   IsEmpty,
   SuccessToast,
 } from "@/utility/FormHelper";
-import axios from "axios";
+import { post_method } from "@/utility/api_fetch_fun";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 import { Toaster } from "react-hot-toast";
 
-const LoginComponent = () => {
+const LoginComponent = ({ data }) => {
   const [submit, setSubmit] = useState(false);
   const router = useRouter();
   let emailRef,
     passwordRef = useRef();
 
-
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     if (!!data === false) {
+  //       let res = await axios.post("/api/user/registration");
+  //       return res;
+  //     }
+  //   };
+  //   fetchData();
+  // }, []);
 
   const formSubmit = async (e) => {
     e.preventDefault();
@@ -32,21 +40,19 @@ const LoginComponent = () => {
       ErrorToast("Email Address Required");
     } else if (IsEmpty(password)) {
       ErrorToast("Password Required");
+    }else{
+      post_method("/api/user/login").then((res)=>{
+        if(res){
+          console.log(res.data);
+          SuccessToast("Login success!")
+          setSubmit(false);
+        }else{
+          ErrorToast("Invalid Email or Password")
+          setSubmit(false);
+        }
+      })
     }
-    {
-      let res = await axios.post("api/user/login", {
-        email,
-        password,
-      });
-      if (res?.data?.status === true) {
-        SuccessToast("Login Success!");
-        // router.replace("/dashboard");
-        setSubmit(false);
-      } else {
-        ErrorToast("Something Went Wrong");
-        setSubmit(false);
-      }
-    }
+    
   };
 
   return (
