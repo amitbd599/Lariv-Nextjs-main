@@ -34,14 +34,8 @@ const LoginComponent = ({ data }) => {
     let email = emailRef.value;
     let password = passwordRef.value;
 
-    if (IsEmail(email)) {
-      ErrorToast("Valid Email Address Required");
-    } else if (IsEmpty(email)) {
-      ErrorToast("Email Address Required");
-    } else if (IsEmpty(password)) {
-      ErrorToast("Password Required");
-    }else{
-      (async () => {
+   
+  
         const rawResponse = await fetch("/api/user/login", {
           method: "POST",
           headers: {
@@ -53,8 +47,8 @@ const LoginComponent = ({ data }) => {
         const content = await rawResponse.json();
   
         console.log(content);
-      })();
-    }
+    
+    
     
   };
 
