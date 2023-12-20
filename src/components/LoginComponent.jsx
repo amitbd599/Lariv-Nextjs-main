@@ -1,12 +1,19 @@
 "use client";
-import SubmitButton from "@/childComponents/SubmitButton";
-
+// import SubmitButton from "@/childComponents/SubmitButton";
+import {
+  ErrorToast,
+  IsEmail,
+  IsEmpty,
+  SuccessToast,
+} from "@/utility/FormHelper";
+import { post_method } from "@/utility/api_fetch_fun";
+import { useRouter } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 import { Toaster } from "react-hot-toast";
 
-const LoginComponent = () => {
-
-
+const LoginComponent = ({ data }) => {
+  // const [submit, setSubmit] = useState(false);
+  // const router = useRouter();
   let emailRef,
     passwordRef = useRef();
 
@@ -22,18 +29,29 @@ const LoginComponent = () => {
 
   const formSubmit = async (e) => {
     e.preventDefault();
-        const rawResponse = await fetch("/api/user/login", {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ email: "a@a.com", password: "admin" }),
-        });
-        const content = await rawResponse.json();
-  
-        console.log(content);
+    // setSubmit(true);
 
+    let email = emailRef.value;
+    let password = passwordRef.value;
+
+    if (IsEmail(email)) {
+      ErrorToast("Valid Email Address Required");
+    } else if (IsEmpty(email)) {
+      ErrorToast("Email Address Required");
+    } else if (IsEmpty(password)) {
+      ErrorToast("Password Required");
+    }else{
+      post_method("/api/user/login").then((res)=>{
+        if(res){
+          console.log(res.data);
+          SuccessToast("Login success!")
+          // setSubmit(false);
+        }else{
+          ErrorToast("Invalid Email or Password")
+          // setSubmit(false);
+        }
+      })
+    }
     
   };
 
@@ -68,7 +86,7 @@ const LoginComponent = () => {
               <h2 className="text-[30px]">Welcome!</h2>
             </div>
             <p className="text-gray-100">Sign Into Your Account</p>
-            <div className=" w-full px-4 sm:w-2/3 lg:px-0">
+            <form action="" className=" w-full px-4 sm:w-2/3 lg:px-0">
               <div className="pb-2 pt-4">
                 <input
                   type="email"
@@ -90,9 +108,14 @@ const LoginComponent = () => {
                 />
               </div>
               <div className=" pb-2 pt-4">
+                {/* <SubmitButton
+                  submit={submit}
+                  onClick={formSubmit}
+                  text="Login"
+                /> */}
                 <button onClick={formSubmit}>Click</button>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </section>
