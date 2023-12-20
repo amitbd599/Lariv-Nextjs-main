@@ -2,7 +2,7 @@
 
 class api_fetch_fun{
 
-    async post_method (api) {
+    async post_method (api, obj) {
         try{
             const rawResponse = await fetch(api, {
             method: "POST",
@@ -10,7 +10,7 @@ class api_fetch_fun{
               Accept: "application/json",
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({ email: "a@a.com", password: "admin" }),
+            body: JSON.stringify(obj),
           });
 
           return true

@@ -17,15 +17,15 @@ const LoginComponent = ({ data }) => {
   let emailRef,
     passwordRef = useRef();
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     if (!!data === false) {
-  //       let res = await axios.post("/api/user/registration");
-  //       return res;
-  //     }
-  //   };
-  //   fetchData();
-  // }, []);
+  useEffect(() => {
+    const fetchData = async () => {
+      if (!!data === false) {
+        let res = await axios.post("/api/user/registration");
+        return res;
+      }
+    };
+    fetchData();
+  }, []);
 
   const formSubmit = async (e) => {
     e.preventDefault();
@@ -41,7 +41,7 @@ const LoginComponent = ({ data }) => {
     } else if (IsEmpty(password)) {
       ErrorToast("Password Required");
     }else{
-      post_method("/api/user/login").then((res)=>{
+      post_method("/api/user/login", {email,password}).then((res)=>{
         if (res?.data?.status === true) {
           SuccessToast("Login Success!");
           router.replace("/dashboard");
@@ -113,7 +113,6 @@ const LoginComponent = ({ data }) => {
                   onClick={formSubmit}
                   text="Login"
                 />
-                <button onClick={formSubmit}>Click</button>
               </div>
             </form>
           </div>
