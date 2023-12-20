@@ -35,6 +35,38 @@ class api_fetch_fun {
       return false
     }
   }
+  async create(obj) {
+    try {
+      const response = await fetch("/api/user/login", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(obj),
+      });
+
+      return response.json()
+    } catch (e) {
+      return false
+    }
+  }
+  async update(api, obj) {
+    try {
+      const response = await fetch(api, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(obj),
+      });
+
+      return response.json()
+    } catch (e) {
+      return false
+    }
+  }
 
 
 
