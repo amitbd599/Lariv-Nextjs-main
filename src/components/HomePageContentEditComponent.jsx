@@ -7,7 +7,7 @@ import { ErrorToast, SuccessToast } from "@/utility/FormHelper";
 import client_api from "@/utility/api_fetch_fun";
 
 const HomePageContentEditComponent = ({ data }) => {
-  console.log(data);
+
   useEffect(() => {
     const fetchData = async () => {
       if (!!data === false) {
