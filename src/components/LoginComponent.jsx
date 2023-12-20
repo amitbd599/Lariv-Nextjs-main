@@ -11,21 +11,13 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 import { Toaster } from "react-hot-toast";
 
-const LoginComponent = ({ data }) => {
+const LoginComponent = () => {
   const [submit, setSubmit] = useState(false);
   const router = useRouter();
   let emailRef,
     passwordRef = useRef();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      if (!!data === false) {
-        let res = await axios.post("/api/user/registration");
-        return res;
-      }
-    };
-    fetchData();
-  }, []);
+
 
   const formSubmit = async (e) => {
     e.preventDefault();
@@ -48,7 +40,7 @@ const LoginComponent = ({ data }) => {
       });
       if (res?.data?.status === true) {
         SuccessToast("Login Success!");
-        router.replace("/dashboard");
+        // router.replace("/dashboard");
         setSubmit(false);
       } else {
         ErrorToast("Something Went Wrong");
