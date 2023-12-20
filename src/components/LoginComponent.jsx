@@ -20,8 +20,7 @@ const LoginComponent = ({ data }) => {
   useEffect(() => {
     const fetchData = async () => {
       if (!!data === false) {
-        let res = await axios.post("/api/user/registration");
-        return res;
+       await post_method("/api/user/registration", {});
       }
     };
     fetchData();
