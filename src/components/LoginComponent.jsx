@@ -41,16 +41,19 @@ const LoginComponent = ({ data }) => {
     } else if (IsEmpty(password)) {
       ErrorToast("Password Required");
     }else{
-      post_method("/api/user/login").then((res)=>{
-        if(res){
-          console.log(res.data);
-          SuccessToast("Login success!")
-          setSubmit(false);
-        }else{
-          ErrorToast("Invalid Email or Password")
-          setSubmit(false);
-        }
-      })
+      (async () => {
+        const rawResponse = await fetch("/api/user/login", {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email: "a@a.com", password: "admin" }),
+        });
+        const content = await rawResponse.json();
+  
+        console.log(content);
+      })();
     }
     
   };
