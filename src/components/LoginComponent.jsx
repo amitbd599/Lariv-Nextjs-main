@@ -1,5 +1,5 @@
 "use client";
-// import SubmitButton from "@/childComponents/SubmitButton";
+import SubmitButton from "@/childComponents/SubmitButton";
 import {
   ErrorToast,
   IsEmail,
@@ -12,7 +12,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Toaster } from "react-hot-toast";
 
 const LoginComponent = ({ data }) => {
-  // const [submit, setSubmit] = useState(false);
+  const [submit, setSubmit] = useState(false);
   // const router = useRouter();
   let emailRef,
     passwordRef = useRef();
@@ -29,7 +29,7 @@ const LoginComponent = ({ data }) => {
 
   const formSubmit = async (e) => {
     e.preventDefault();
-    // setSubmit(true);
+    setSubmit(true);
 
     let email = emailRef.value;
     let password = passwordRef.value;
@@ -45,10 +45,10 @@ const LoginComponent = ({ data }) => {
         if(res){
           console.log(res.data);
           SuccessToast("Login success!")
-          // setSubmit(false);
+          setSubmit(false);
         }else{
           ErrorToast("Invalid Email or Password")
-          // setSubmit(false);
+          setSubmit(false);
         }
       })
     }
@@ -108,11 +108,11 @@ const LoginComponent = ({ data }) => {
                 />
               </div>
               <div className=" pb-2 pt-4">
-                {/* <SubmitButton
+                <SubmitButton
                   submit={submit}
                   onClick={formSubmit}
                   text="Login"
-                /> */}
+                />
                 <button onClick={formSubmit}>Click</button>
               </div>
             </form>
