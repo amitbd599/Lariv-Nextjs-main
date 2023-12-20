@@ -1,50 +1,45 @@
 
 
-class api_fetch_fun{
+class api_fetch_fun {
 
-    async post_method (api, obj) {
-        try{
-            const rawResponse = await fetch(api, {
-            method: "POST",
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(obj),
-          });
+  async register(obj) {
+    try {
+      const response = await fetch("/api/user/registration", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(obj),
+      });
 
-          return true
-        }catch(e){
-            return false
-        }
-        
+      return true
+    } catch (e) {
+      return false
     }
-    async get_method (api) {
-        const rawResponse = await fetch(api, {
-            method: "GET",
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ email: "a@a.com", password: "admin" }),
-          });
 
-          return rawResponse
-    }
-    async delete_method (api) {
-        const rawResponse = await fetch(api, {
-            method: "DELETE",
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ email: "a@a.com", password: "admin" }),
-          });
+  }
+  async login(obj) {
+    try {
+      const response = await fetch("/api/user/login", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(obj),
+      });
 
-          return rawResponse
+      return response.json()
+    } catch (e) {
+      return false
     }
+  }
+
+
 
 }
 
+const client_api = new api_fetch_fun()
 
-export const {post_method, get_method, delete_method} = new  api_fetch_fun()
+export default client_api

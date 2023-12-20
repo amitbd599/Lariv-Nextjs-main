@@ -6,21 +6,21 @@ import {
   IsEmpty,
   SuccessToast,
 } from "@/utility/FormHelper";
-import { post_method } from "@/utility/api_fetch_fun";
-// import { useRouter } from "next/navigation";
+import client_api from "@/utility/api_fetch_fun";
+import { useRouter } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 import { Toaster } from "react-hot-toast";
 
 const LoginComponent = ({ data }) => {
   const [submit, setSubmit] = useState(false);
-  // const router = useRouter();
+  const router = useRouter();
   let emailRef,
     passwordRef = useRef();
 
   useEffect(() => {
     const fetchData = async () => {
       if (!!data === false) {
-       await post_method("/api/user/registration", {});
+        await client_api.register({});
       }
     };
     fetchData();
@@ -39,19 +39,20 @@ const LoginComponent = ({ data }) => {
       ErrorToast("Email Address Required");
     } else if (IsEmpty(password)) {
       ErrorToast("Password Required");
-    }else{
-      post_method("/api/user/login", {email,password}).then((res)=>{
-        if (res?.data?.status === true) {
+    } else {
+      client_api.login({ email, password }).then((res) => {
+        console.log(res);
+        if (res?.status === true) {
           SuccessToast("Login Success!");
           router.replace("/dashboard");
           setSubmit(false);
         } else {
-          ErrorToast("Something fail");
+          ErrorToast("Login fail");
           setSubmit(false);
         }
       })
     }
-    
+
   };
 
   return (
