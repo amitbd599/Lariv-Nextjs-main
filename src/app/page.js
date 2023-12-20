@@ -27,14 +27,7 @@ export default  function Home() {
     let email = emailRef.value;
     let password = passwordRef.value;
 
-    if (IsEmail(email)) {
-      ErrorToast("Valid Email Address Required");
-    } else if (IsEmpty(email)) {
-      ErrorToast("Email Address Required");
-    } else if (IsEmpty(password)) {
-      ErrorToast("Password Required");
-    }
-    {
+    
       let res = await axios.post("api/user/login", {
         email,
         password,
@@ -47,7 +40,7 @@ export default  function Home() {
         ErrorToast("Something Went Wrong");
         setSubmit(false);
       }
-    }
+    
   };
 
 
