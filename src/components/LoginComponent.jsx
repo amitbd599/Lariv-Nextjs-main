@@ -1,19 +1,12 @@
 "use client";
 import SubmitButton from "@/childComponents/SubmitButton";
-import {
-  ErrorToast,
-  IsEmail,
-  IsEmpty,
-  SuccessToast,
-} from "@/utility/FormHelper";
-import { post_method } from "@/utility/api_fetch_fun";
-import { useRouter } from "next/navigation";
+
 import React, { useEffect, useRef, useState } from "react";
 import { Toaster } from "react-hot-toast";
 
-const LoginComponent = ({ data }) => {
-  const [submit, setSubmit] = useState(false);
-  const router = useRouter();
+const LoginComponent = () => {
+
+
   let emailRef,
     passwordRef = useRef();
 
@@ -29,13 +22,6 @@ const LoginComponent = ({ data }) => {
 
   const formSubmit = async (e) => {
     e.preventDefault();
-    setSubmit(true);
-
-    let email = emailRef.value;
-    let password = passwordRef.value;
-
-   
-  
         const rawResponse = await fetch("/api/user/login", {
           method: "POST",
           headers: {
@@ -47,8 +33,7 @@ const LoginComponent = ({ data }) => {
         const content = await rawResponse.json();
   
         console.log(content);
-    
-    
+
     
   };
 
@@ -83,7 +68,7 @@ const LoginComponent = ({ data }) => {
               <h2 className="text-[30px]">Welcome!</h2>
             </div>
             <p className="text-gray-100">Sign Into Your Account</p>
-            <form action="" className=" w-full px-4 sm:w-2/3 lg:px-0">
+            <div className=" w-full px-4 sm:w-2/3 lg:px-0">
               <div className="pb-2 pt-4">
                 <input
                   type="email"
@@ -105,13 +90,9 @@ const LoginComponent = ({ data }) => {
                 />
               </div>
               <div className=" pb-2 pt-4">
-                <SubmitButton
-                  submit={submit}
-                  onClick={formSubmit}
-                  text="Login"
-                />
+                <button onClick={formSubmit}>Click</button>
               </div>
-            </form>
+            </div>
           </div>
         </div>
       </section>
