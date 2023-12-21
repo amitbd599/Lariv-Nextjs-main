@@ -21,7 +21,8 @@ function InboxTable() {
   }, []);
 
   const DeleteMessage = (id) => {
-    DeleteAlert(client_api.delete(`/api/dashboard/message/delete?id=${id}`)).then((res) => {
+    let deleteApi = () => client_api.delete(`/api/dashboard/message/delete?id=${id}`)()
+    DeleteAlert(deleteApi).then((res) => {
       if (res?.status === true) {
         client_api.get("/api/dashboard/message/read-all").then((res) => {
           if (res?.status === true) {

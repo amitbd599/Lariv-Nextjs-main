@@ -81,7 +81,7 @@ class api_fetch_fun {
         method: "DELETE",
       });
 
-      return response.json()
+      return true
     } catch (e) {
       return false
     }
