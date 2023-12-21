@@ -11,19 +11,11 @@ const PortfolioPageContentEditComponent = ({ data }) => {
   useEffect(() => {
     const fetchData = async () => {
       if (!!data === false) {
-        let res = await fetch("/api/dashboard/portfolio_page/create", {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            heading_title: "",
-            heading_title_color: "",
-            heading_title_des: ""
-          }),
+        client_api.create("/api/dashboard/portfolio_page/create", {
+          heading_title: "",
+          heading_title_color: "",
+          heading_title_des: ""
         });
-        return res;
       }
     };
     fetchData();
@@ -40,7 +32,7 @@ const PortfolioPageContentEditComponent = ({ data }) => {
     let heading_title_color = heading_title_colorRef.value;
     let heading_title_des = heading_title_desRef.value;
 
-  client_api.update("/api/dashboard/portfolio_page/update", {
+    client_api.update("/api/dashboard/portfolio_page/update", {
       heading_title,
       heading_title_color,
       heading_title_des,

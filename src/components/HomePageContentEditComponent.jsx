@@ -12,33 +12,25 @@ const HomePageContentEditComponent = ({ data }) => {
   useEffect(() => {
     const fetchData = async () => {
       if (!!data === false) {
-        let res = await fetch("/api/dashboard/home_page/create", {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            top_section_subTitleColor: "",
-            top_section_subTitle: "",
-            top_section_heading_title_1: "",
-            top_section_heading_title_2: "",
-            top_section_heading_title_3: "",
-            top_section_description: "",
-            top_section_button_cover_text: "",
-            top_section_button_cover_link: "",
-            counter_section_one_count_number: "",
-            counter_section_one_count_des: "",
-            counter_section_two_count_number: "",
-            counter_section_two_count_des: "",
-            counter_section_three_count_number: "",
-            counter_section_three_count_des: "",
-            profile_img: "",
-            profile_shape_counter: "",
-            profile_shape_text: "",
-          }),
+        client_api.create("/api/dashboard/home_page/create", {
+          top_section_subTitleColor: "",
+          top_section_subTitle: "",
+          top_section_heading_title_1: "",
+          top_section_heading_title_2: "",
+          top_section_heading_title_3: "",
+          top_section_description: "",
+          top_section_button_cover_text: "",
+          top_section_button_cover_link: "",
+          counter_section_one_count_number: "",
+          counter_section_one_count_des: "",
+          counter_section_two_count_number: "",
+          counter_section_two_count_des: "",
+          counter_section_three_count_number: "",
+          counter_section_three_count_des: "",
+          profile_img: "",
+          profile_shape_counter: "",
+          profile_shape_text: "",
         });
-        return res;
       }
     };
     fetchData();

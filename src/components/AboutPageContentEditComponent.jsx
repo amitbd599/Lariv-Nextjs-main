@@ -12,36 +12,28 @@ const AboutPageContentEditComponent = ({ data }) => {
   useEffect(() => {
     const fetchData = async () => {
       if (!!data === false) {
-        let res = await fetch("/api/dashboard/about_page/create", {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            top_title_heading: "",
-            top_title_heading_theme_color: "",
-            top_title_subHeading: "",
-            about_profile_img: "",
-            info_content_email: "",
-            info_content_address: "",
-            social_link_facebook: "",
-            social_link_twitter: "",
-            social_link_linkdin: "",
-            social_link_git: "",
-            button_title: "",
-            button_link: "",
-            top_about_section_heading_title: "",
-            top_about_section_heading_title_color: "",
-            top_about_section_des: "",
-            personal_section_heading_title: "",
-            personal_section_inner_action_fullName: "",
-            personal_section_inner_action_birthday: "",
-            personal_section_inner_action_email: "",
-            personal_section_inner_action_skype: "",
-          }),
+        client_api.create("/api/dashboard/about_page/create", {
+          top_title_heading: "",
+          top_title_heading_theme_color: "",
+          top_title_subHeading: "",
+          about_profile_img: "",
+          info_content_email: "",
+          info_content_address: "",
+          social_link_facebook: "",
+          social_link_twitter: "",
+          social_link_linkdin: "",
+          social_link_git: "",
+          button_title: "",
+          button_link: "",
+          top_about_section_heading_title: "",
+          top_about_section_heading_title_color: "",
+          top_about_section_des: "",
+          personal_section_heading_title: "",
+          personal_section_inner_action_fullName: "",
+          personal_section_inner_action_birthday: "",
+          personal_section_inner_action_email: "",
+          personal_section_inner_action_skype: "",
         });
-        return res;
       }
     };
     fetchData();

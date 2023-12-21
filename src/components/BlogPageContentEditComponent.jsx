@@ -11,19 +11,11 @@ const BlogPageContentEditComponent = ({ data }) => {
   useEffect(() => {
     const fetchData = async () => {
       if (!!data === false) {
-        let res = await fetch("/api/dashboard/blog_page/create", {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            heading_title: "",
-            heading_title_color: "",
-            heading_title_des: "",
-          }),
+        client_api.create("/api/dashboard/blog_page/create", {
+          heading_title: "",
+          heading_title_color: "",
+          heading_title_des: "",
         });
-        return res;
       }
     };
     fetchData();

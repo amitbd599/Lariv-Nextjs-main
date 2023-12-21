@@ -3,7 +3,7 @@ let EmailRegx = /\S+@\S+\.\S+/;
 
 class FormHelper {
   IsEmpty(value) {
-    return value.length === 0;
+    return value?.length === 0;
   }
 
   IsEmail(value) {
