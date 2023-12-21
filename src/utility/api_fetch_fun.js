@@ -51,7 +51,7 @@ class api_fetch_fun {
       return false
     }
   }
-  async get_single(api) {
+  async get(api) {
     try {
       const response = await fetch(api);
       console.log(response);
