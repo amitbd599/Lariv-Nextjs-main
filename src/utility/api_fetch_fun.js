@@ -35,9 +35,9 @@ class api_fetch_fun {
       return false
     }
   }
-  async create(obj) {
+  async create(api, obj) {
     try {
-      const response = await fetch("/api/user/login", {
+      const response = await fetch(api, {
         method: "POST",
         headers: {
           Accept: "application/json",

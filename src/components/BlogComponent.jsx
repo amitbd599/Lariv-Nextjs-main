@@ -13,19 +13,6 @@ const BlogComponent = ({ page, data }) => {
   let [totalBlog, setTotalBlog] = useState(0);
 
   let perPage = 6;
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     await read_pagination_blog__Request__API(parseInt(page)).then((res) => {
-  //       if (res) {
-  //         setBlog(res?.data?.blog);
-  //         setTotalBlog(res?.data?.totalBlogCount);
-  //       }
-  //     });
-  //   };
-  //   fetchData();
-  // }, []);
-
   useEffect(() => {
     const fetchData = async () => {
       await client_api.get(`/api/dashboard/blog/read-pagination?page=${parseInt(page)}`).then((res) => {
