@@ -1,17 +1,19 @@
 "use client";
+
 import React, { useEffect, useRef, useState } from "react";
 import { Toaster } from "react-hot-toast";
 import SubmitButton from "@/childComponents/SubmitButton";
 import { ErrorToast, SuccessToast } from "@/utility/FormHelper";
 import client_api from "@/utility/api_fetch_fun";
 
-const PortfolioPageContentEditComponent = ({ data }) => {
+const ServicePageContentEditComponent = ({ data }) => {
   const [submit, setSubmit] = useState(false);
+
 
   useEffect(() => {
     const fetchData = async () => {
       if (!!data === false) {
-        let res = await fetch("/api/dashboard/portfolio_page/create", {
+        let res = await fetch("/api/dashboard/service_page/create", {
           method: "POST",
           headers: {
             Accept: "application/json",
@@ -20,7 +22,7 @@ const PortfolioPageContentEditComponent = ({ data }) => {
           body: JSON.stringify({
             heading_title: "",
             heading_title_color: "",
-            heading_title_des: ""
+            heading_title_des: "",
           }),
         });
         return res;
@@ -40,7 +42,7 @@ const PortfolioPageContentEditComponent = ({ data }) => {
     let heading_title_color = heading_title_colorRef.value;
     let heading_title_des = heading_title_desRef.value;
 
-  client_api.update("/api/dashboard/portfolio_page/update", {
+    client_api.update("/api/dashboard/service_page/update", {
       heading_title,
       heading_title_color,
       heading_title_des,
@@ -62,7 +64,7 @@ const PortfolioPageContentEditComponent = ({ data }) => {
       <Toaster position="top-center" reverseOrder={false} />
       <div className="m-[30px] rounded-xl bg-[#36404A] p-[30px]">
         <h2 className="text-xl font-medium text-white">
-          Portfolio page content edit section
+          Service page content edit section
         </h2>
         <div className="mt-[16px]">
           <div className="grid gap-5">
@@ -84,7 +86,9 @@ const PortfolioPageContentEditComponent = ({ data }) => {
                   className="h-[40px] w-full rounded-lg border border-border bg-transparent px-3 outline-none placeholder:text-sm"
                 />
               </div>
-              <div>
+            </div>
+            <div className="grid gap-2">
+              <div className="flex gap-3">
                 <textarea
                   ref={(input) => (heading_title_desRef = input)}
                   defaultValue={data?.heading_title_des}
@@ -93,7 +97,7 @@ const PortfolioPageContentEditComponent = ({ data }) => {
                   cols="30"
                   rows="6"
                   placeholder="Description"
-                  className=" w-full rounded-lg border border-border bg-transparent p-3 outline-none placeholder:text-sm"
+                  className=" w-full rounded-lg border border-border bg-transparent p-3 py-3 outline-none placeholder:text-sm"
                 ></textarea>
               </div>
             </div>
@@ -107,4 +111,4 @@ const PortfolioPageContentEditComponent = ({ data }) => {
   );
 };
 
-export default PortfolioPageContentEditComponent;
+export default ServicePageContentEditComponent;
