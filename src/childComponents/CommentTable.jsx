@@ -23,11 +23,10 @@ function CommentTable() {
   }, []);
 
   const DeleteComment = (id) => {
-    let deleteApi = () => client_api.delete(`/api/dashboard/comment/delete?id=${id}`)()
-    DeleteAlert(deleteApi).then((res) => {
+    DeleteAlert(`/api/dashboard/comment/delete?id=${id}`).then(async (res) => {
       if (res) {
-        client_api.get("/api/dashboard/comment/read-all").then((res) => {
-          if (res.status === true) {
+        await client_api.get("/api/dashboard/comment/read-all").then((res) => {
+          if (res?.status === true) {
             setData(res?.data);
           }
         });

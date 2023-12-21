@@ -2,28 +2,28 @@
 
 import { DeleteAlert } from "@/utility/DeleteAlert";
 import Link from "next/link";
-import { FaComment, FaPenToSquare } from "react-icons/fa6";
+import { FaPenToSquare } from "react-icons/fa6";
 import React, { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
 import { FaTrashCan } from "react-icons/fa6";
 import { Toaster } from "react-hot-toast";
 import client_api from "@/utility/api_fetch_fun";
 
-function BlogTable() {
+function PortfolioTable() {
   const [data, setData] = useState([]);
   useEffect(() => {
-    client_api.get("/api/dashboard/blog/read-all-with-comment").then((res) => {
+    client_api.get("/api/dashboard/portfolio/read-all").then((res) => {
       if (res.status === true) {
         setData(res?.data);
       }
     });
   }, []);
 
-  const DeleteBlog = (id) => {
-    DeleteAlert(`/api/dashboard/blog/delete?id=${id}`).then(async (res) => {
+  const DeletePortfolio = (id) => {
+    DeleteAlert(`/api/dashboard/portfolio/delete?id=${id}`).then(async (res) => {
       if (res) {
-        await client_api.get("/api/dashboard/blog/read-all-with-comment").then((res) => {
-          if (res?.status === true) {
+        await client_api.get("/api/dashboard/portfolio/read-all").then((res) => {
+          if (res.status === true) {
             setData(res?.data);
           }
         });
@@ -31,40 +31,18 @@ function BlogTable() {
     });
   };
 
-  console.log(data)
-
   const columns = [
     {
-      name: `Id  - Title`,
-      selector: (row) => row?.id + "-" + row.title,
+      name: "Title",
+      selector: (row) => row?.title,
     },
-
     {
       name: "Last update",
       selector: (row) => row?.updateAt.substring(0, 10),
     },
     {
-      name: "Total Comments",
-      selector: (row) => (
-        <div className=" flex gap-2 item-center">
-          {row?.comment.length} <FaComment />
-        </div>
-      ),
-    },
-    {
-      name: "View Blog",
-      selector: (row) => (
-        <div className=" cursor-pointer	bg-purple-50 text-purple-600 px-[10px] py-0 rounded-full">
-          <Link
-            href={`/blog-details/${row?.title
-              .replace(/[^a-zA-Z0-9-.\s]/g, "")
-              .replace(/ /g, "-")}?id=${row?.id}`}
-            target="_blank"
-          >
-            View
-          </Link>
-        </div>
-      ),
+      name: "Category",
+      selector: (row) => row?.category,
     },
 
     {
@@ -72,12 +50,12 @@ function BlogTable() {
       selector: (row) => (
         <div className="flex gap-2 item-center">
           <div className="p-2 cursor-pointer	">
-            <Link href={`/dashboard/blog/edit-blog/${row?.id}`}>
+            <Link href={`/dashboard/portfolio/edit-portfolio/${row?.id}`}>
               <FaPenToSquare />
             </Link>
           </div>
           <div className="p-2 cursor-pointer	">
-            <FaTrashCan onClick={() => DeleteBlog(row?.id)} />
+            <FaTrashCan onClick={() => DeletePortfolio(row?.id)} />
           </div>
         </div>
       ),
@@ -87,7 +65,9 @@ function BlogTable() {
   return (
     <div className="rounded-xl bg-[#36404A] p-[30px] m-[30px]">
       <Toaster position="top-center" reverseOrder={false} />
-      <h2 className="text-slate-700 text-2xl font-semibold mb-2">All Blog</h2>
+      <h2 className="text-slate-700 text-2xl font-semibold mb-2">
+        All Portfolio
+      </h2>
       <DataTable
         fixedHeader
         fixedHeaderScrollHeight="600px"
@@ -99,4 +79,4 @@ function BlogTable() {
   );
 }
 
-export default BlogTable;
+export default PortfolioTable;
