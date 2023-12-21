@@ -54,7 +54,6 @@ class api_fetch_fun {
   async get(api) {
     try {
       const response = await fetch(api);
-      console.log(response);
       return response.json()
     } catch (e) {
       return false
@@ -69,6 +68,17 @@ class api_fetch_fun {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(obj),
+      });
+
+      return response.json()
+    } catch (e) {
+      return false
+    }
+  }
+  async delete(api) {
+    try {
+      const response = await fetch(api, {
+        method: "DELETE",
       });
 
       return response.json()
