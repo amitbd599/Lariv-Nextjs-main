@@ -1,4 +1,4 @@
-// import AboutComponent from "@/components/AboutComponent";
+import AboutComponent from "@/components/AboutComponent";
 import MasterLayout from "@/layout/MasterLayout";
 import { PrismaClient } from "@prisma/client";
 
@@ -9,7 +9,9 @@ async function getData() {
   let education_data = await prisma.education.findMany();
   let skill_data = await prisma.skill.findMany();
 
-  return { about_page_data, experience_data, education_data, skill_data };
+  let data = { about_page_data, experience_data, education_data, skill_data }
+
+  return data;
 }
 
 export default async function Page() {
@@ -17,7 +19,7 @@ export default async function Page() {
   return (
     <main>
       <MasterLayout>
-        {/* <AboutComponent data={data} /> */}
+        <AboutComponent data={data} />
       </MasterLayout>
     </main>
   );

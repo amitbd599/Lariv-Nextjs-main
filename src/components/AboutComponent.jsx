@@ -8,11 +8,11 @@ import {
   FaTwitter,
   FaUserTie,
 } from "react-icons/fa6";
-const AboutComponent = ({ data }) => {
-  let about_page_data = data?.about_page_data[0];
-  let experience_data = data?.experience_data;
-  let education_data = data?.education_data;
-  let skill_data = data?.skill_data;
+const AboutComponent = async ({ data }) => {
+  let about_page_data = await data?.about_page_data[0];
+  let experience_data = await data?.experience_data;
+  let education_data = await data?.education_data;
+  let skill_data = await data?.skill_data;
   return (
     <section className="py-[30px] md:py-[80px]">
       <div className="container">
