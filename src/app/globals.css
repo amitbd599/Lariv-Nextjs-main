@@ -132,6 +132,9 @@ Version      : 1.0.1
 .bvimVq {
   margin-top: 16px;
 }
+.ql-editor{
+  min-height: 300px;
+}
 
 .myQuil {
   min-height: 300px;
