@@ -1,3 +1,4 @@
+export const revalidate = 0;
 import HomePageContentEditComponent from "@/components/HomePageContentEditComponent";
 import DashboardMasterLayout from "@/layout/DashboardMasterLayout";
 import {PrismaClient} from "@prisma/client";

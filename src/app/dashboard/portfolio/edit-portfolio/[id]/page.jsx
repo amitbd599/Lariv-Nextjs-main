@@ -1,3 +1,4 @@
+export const revalidate = 0;
 import EditPortfolioComponent from "@/components/EditPortfolioComponent";
 import DashboardMasterLayout from "@/layout/DashboardMasterLayout";
 import {PrismaClient} from "@prisma/client";

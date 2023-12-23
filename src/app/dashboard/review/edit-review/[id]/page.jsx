@@ -1,3 +1,4 @@
+export const revalidate = 0;
 import EditReviewComponent from "@/components/EditReviewComponent";
 import DashboardMasterLayout from "@/layout/DashboardMasterLayout";
 

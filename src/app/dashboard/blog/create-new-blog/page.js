@@ -1,3 +1,4 @@
+export const revalidate = 0;
 import CreateNewBlogComponent from "@/components/CreateNewBlogComponent";
 import DashboardMasterLayout from "@/layout/DashboardMasterLayout";
 

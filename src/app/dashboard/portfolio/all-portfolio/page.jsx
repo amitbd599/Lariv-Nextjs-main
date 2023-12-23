@@ -1,3 +1,4 @@
+export const revalidate = 0;
 import DashboardMasterLayout from "@/layout/DashboardMasterLayout";
 import PortfolioTable from "@/childComponents/PortfolioTable";
 

@@ -1,3 +1,4 @@
+export const revalidate = 0;
 import EditEducationComponent from "@/components/EditEducationComponent";
 import DashboardMasterLayout from "@/layout/DashboardMasterLayout";
 
