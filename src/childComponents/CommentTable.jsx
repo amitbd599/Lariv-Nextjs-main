@@ -14,8 +14,8 @@ import client_api from "@/utility/api_fetch_fun";
 
 function CommentTable() {
   const [data, setData] = useState([]);
-  useEffect(() => {
-    client_api.get("/api/dashboard/comment/read-all").then((res) => {
+  useEffect(async () => {
+    await client_api.get("/api/dashboard/comment/read-all").then((res) => {
       if (res.status === true) {
         setData(res?.data);
       }
