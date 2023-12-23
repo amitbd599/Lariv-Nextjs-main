@@ -4,6 +4,7 @@ import { DeleteAlert } from "@/utility/DeleteAlert";
 import React, { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
 import {
+  ThemeProvider,
   Popover,
   PopoverHandler,
   PopoverContent, Checkbox
@@ -119,7 +120,7 @@ function CommentTable() {
   ];
 
   return (
-    <div className="rounded-xl bg-[#36404A] p-[30px] m-[30px]">
+    <ThemeProvider><div className="rounded-xl bg-[#36404A] p-[30px] m-[30px]">
       <h2 className="text-slate-700 text-2xl font-semibold mb-2">
         All comments
       </h2>
@@ -130,7 +131,8 @@ function CommentTable() {
         data={data}
         pagination
       />
-    </div>
+    </div></ThemeProvider>
+
   );
 }
 
