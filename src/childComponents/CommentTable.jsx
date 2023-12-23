@@ -1,13 +1,12 @@
 "use client";
 
 import { DeleteAlert } from "@/utility/DeleteAlert";
-import { Checkbox } from "@material-tailwind/react";
 import React, { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
 import {
   Popover,
   PopoverHandler,
-  PopoverContent,
+  PopoverContent, Checkbox
 } from "@/helpers/MaterialTailwind";
 import { FaTrashCan } from "react-icons/fa6";
 import client_api from "@/utility/api_fetch_fun";
