@@ -1,4 +1,4 @@
-import AboutComponent from "@/components/AboutComponent";
+// import AboutComponent from "@/components/AboutComponent";
 import MasterLayout from "@/layout/MasterLayout";
 import { PrismaClient } from "@prisma/client";
 
@@ -19,7 +19,7 @@ export default async function Page() {
   return (
     <main>
       <MasterLayout>
-        <AboutComponent data={data} />
+        {/* <AboutComponent data={data} /> */}
       </MasterLayout>
     </main>
   );
