@@ -1,5 +1,4 @@
-
-
+export const revalidate = 0;
 class api_fetch_fun {
 
   async register(obj) {
