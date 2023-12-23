@@ -8,7 +8,7 @@ import {
   Popover,
   PopoverHandler,
   PopoverContent,
-} from "@material-tailwind/react";
+} from "@/helpers/MaterialTailwind";
 import { FaTrashCan } from "react-icons/fa6";
 import client_api from "@/utility/api_fetch_fun";
 
