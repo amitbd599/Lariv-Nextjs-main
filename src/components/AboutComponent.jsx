@@ -9,10 +9,10 @@ import {
   FaUserTie,
 } from "react-icons/fa6";
 const AboutComponent = async ({ data }) => {
-  let about_page_data = await data?.about_page_data[0];
-  let experience_data = await data?.experience_data;
-  let education_data = await data?.education_data;
-  let skill_data = await data?.skill_data;
+  let about_page_data = await data?.getAbout_page[0];
+  let experience_data = await data?.experience;
+  let education_data = await data?.education;
+  let skill_data = await data?.skill;
   return (
     <section className="py-[30px] md:py-[80px]">
       <div className="container">
