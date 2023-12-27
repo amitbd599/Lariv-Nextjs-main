@@ -1,4 +1,4 @@
-//export const revalidate = 0;
+export const revalidate = 0;
 import ContactComponent from "@/components/ContactComponent";
 import MasterLayout from "@/layout/MasterLayout";
 import { PrismaClient } from "@prisma/client";

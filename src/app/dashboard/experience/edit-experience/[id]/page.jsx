@@ -1,4 +1,4 @@
-//export const revalidate = 0;
+export const revalidate = 0;
 import EditExperienceComponent from "@/components/EditExperienceComponent";
 import DashboardMasterLayout from "@/layout/DashboardMasterLayout";
 
