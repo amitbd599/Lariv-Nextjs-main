@@ -1,4 +1,4 @@
-export const revalidate = 0;
+//export const revalidate = 0;
 import LoginComponent from "@/components/LoginComponent";
 import { PrismaClient } from "@prisma/client";
 

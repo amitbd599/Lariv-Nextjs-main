@@ -1,15 +1,15 @@
-export const revalidate = 0;
+//export const revalidate = 0;
 import EditSkillComponent from "@/components/EditSkillComponent";
 import DashboardMasterLayout from "@/layout/DashboardMasterLayout";
 
 
-export default async function Page({params}) {
+export default async function Page({ params }) {
   let id = params.id;
 
   return (
     <main>
       <DashboardMasterLayout>
-        <EditSkillComponent id={id}/>
+        <EditSkillComponent id={id} />
       </DashboardMasterLayout>
     </main>
   );

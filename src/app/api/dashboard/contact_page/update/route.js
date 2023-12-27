@@ -1,5 +1,5 @@
 
-export const revalidate = 0;
+//export const revalidate = 0;
 import { PrismaClient } from "@prisma/client";
 import { NextResponse } from "next/server";
 export async function POST(req, res) {
@@ -8,7 +8,7 @@ export async function POST(req, res) {
     let prisma = new PrismaClient();
 
     let result = await prisma.contact_page.update({
-      where: { id: 1},
+      where: { id: 1 },
       data: reqBody,
     });
 

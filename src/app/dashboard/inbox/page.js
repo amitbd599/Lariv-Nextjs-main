@@ -1,4 +1,4 @@
-export const revalidate = 0;
+//export const revalidate = 0;
 import InboxTable from "@/childComponents/InboxTable";
 
 import DashboardMasterLayout from "@/layout/DashboardMasterLayout";

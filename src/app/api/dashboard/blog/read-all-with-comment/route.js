@@ -1,4 +1,4 @@
-export const revalidate = 0;
+//export const revalidate = 0;
 import { PrismaClient } from "@prisma/client";
 import { NextResponse } from "next/server";
 export async function GET(req, res) {
@@ -8,18 +8,18 @@ export async function GET(req, res) {
     let result = await prisma.blog.findMany({
 
       select: {
-        id:true, 
-        title:true, 
-        keywords:true, 
-        short_des:true, 
-        img:true, 
-        createAt:true, 
-        updateAt:true, 
-       comment: {
-        select: {
-          id: true
-        }
-      },
+        id: true,
+        title: true,
+        keywords: true,
+        short_des: true,
+        img: true,
+        createAt: true,
+        updateAt: true,
+        comment: {
+          select: {
+            id: true
+          }
+        },
       }
     });
 

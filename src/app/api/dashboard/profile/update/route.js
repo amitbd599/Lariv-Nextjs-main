@@ -1,4 +1,4 @@
-export const revalidate = 0;
+//export const revalidate = 0;
 let md5 = require('md5');
 import { PrismaClient } from "@prisma/client";
 import { NextResponse } from "next/server";
@@ -8,7 +8,7 @@ export async function POST(req, res) {
     let prisma = new PrismaClient();
     reqBody.password = md5(reqBody.password)
     let result = await prisma.profile.update({
-      where: { id: 1},
+      where: { id: 1 },
       data: reqBody,
     });
 

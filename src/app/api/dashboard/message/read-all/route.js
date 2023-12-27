@@ -1,4 +1,4 @@
-export const revalidate = 0;
+//export const revalidate = 0;
 import { PrismaClient } from "@prisma/client";
 import { NextResponse } from "next/server";
 export async function GET(req, res) {
@@ -6,7 +6,7 @@ export async function GET(req, res) {
     let prisma = new PrismaClient();
 
     let result = await prisma.message.findMany({
-      select:{
+      select: {
         id: true,
         name: true,
         email: true,

@@ -1,4 +1,4 @@
-export const revalidate = 0;
+//export const revalidate = 0;
 import CreateNewSkillComponent from "@/components/CreateNewSkillComponent";
 import DashboardMasterLayout from "@/layout/DashboardMasterLayout";
 
