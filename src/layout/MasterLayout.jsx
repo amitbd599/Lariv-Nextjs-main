@@ -106,7 +106,50 @@ const MasterLayout = (props) => {
             </div>
           </div>
           <div className="my-[30px] border-t border-[#ddd] "></div>
-
+          <menu className=" items-center lg:hidden">
+              <ul className="grid  gap-[20px]">
+                <li className={pathname === "/" ? "navActive text-[20px]" : "navNotActive text-[20px]"}>
+                  <Link href={"/"}>Home</Link>
+                </li>
+                <li
+                  className={
+                    pathname === "/about" ? "navActive text-[20px]" : "navNotActive text-[20px]"
+                  }
+                >
+                  <Link href={"/about"}>About Us</Link>
+                </li>
+                <li
+                  className={
+                    pathname === "/portfolio" ? "navActive text-[20px]" : "navNotActive text-[20px]"
+                  }
+                >
+                  <Link href={"/portfolio"}>Portfolio</Link>
+                </li>
+                <li
+                  className={
+                    pathname === "/service" ? "navActive text-[20px]" : "navNotActive text-[20px]"
+                  }
+                >
+                  <Link href={"/service"}>Service</Link>
+                </li>
+                <li
+                  className={
+                    pathname.split("/").slice(0, 2).join("/") === "/blog"
+                      ? "navActive text-[20px]"
+                      : "navNotActive text-[20px]" 
+                  }
+                >
+                  <Link href={"/blog/1"}>Blog</Link>
+                </li>
+                <li
+                  className={
+                    pathname === "/contact" ? "navActive text-[20px]" : "navNotActive text-[20px]"
+                  }
+                >
+                  <Link href={"/contact"}>Contact</Link>
+                </li>
+              </ul>
+            </menu>
           <div className="my-[30px] border-t border-[#ddd] "></div>
 
           <div className="contact mt-[40px] pb-[20px] md:mt-[0px]">
