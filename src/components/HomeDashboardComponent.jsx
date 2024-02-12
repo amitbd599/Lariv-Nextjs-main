@@ -24,7 +24,6 @@ import {
 } from "recharts";
 
 const HomeDashboardComponent = ({ all_data }) => {
-
   const data = [
     {
       name: "Home",
@@ -221,8 +220,8 @@ const HomeDashboardComponent = ({ all_data }) => {
                                 .replace(/ /g, "-")}?id=${item?.id}`}
                               target="_blank"
                             >
-                              <span class="inline-flex items-center gap-1 rounded-full bg-purple-50 px-2 py-1 text-xs font-semibold text-purple-600">
-                                <span class="h-1.5 w-1.5 rounded-full bg-purple-600"></span>
+                              <span className="inline-flex items-center gap-1 rounded-full bg-purple-50 px-2 py-1 text-xs font-semibold text-purple-600">
+                                <span className="h-1.5 w-1.5 rounded-full bg-purple-600"></span>
                                 View Post
                               </span>
                             </Link>

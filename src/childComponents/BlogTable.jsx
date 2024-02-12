@@ -31,7 +31,7 @@ function BlogTable() {
     });
   };
 
-  console.log(data)
+
 
   const columns = [
     {
