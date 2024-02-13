@@ -1,4 +1,4 @@
-"use client";
+"use client"; 
 import React from "react";
 import { FaRegEnvelope } from "react-icons/fa6";
 import { useState, useRef } from "react";

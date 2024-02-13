@@ -1,4 +1,4 @@
-"use client";
+"use client"; 
 
 import { DeleteAlert } from "@/utility/DeleteAlert";
 

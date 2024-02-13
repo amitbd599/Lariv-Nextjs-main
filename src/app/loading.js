@@ -11,7 +11,7 @@ export default function Loading() {
         <div className="spinner-ring" />
         <div className="spinner-ring" />
         <div className="spinner-ring" />
-        <div className="spinner-ring" />
+        <div className="spinner-ring" /> 
       </div>
     </div>
   );

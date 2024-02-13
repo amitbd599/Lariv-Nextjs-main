@@ -1,4 +1,4 @@
-"use client";
+"use client"; 
 
 import {
     ThemeProvider, Progress, Typography, Spinner, Popover,

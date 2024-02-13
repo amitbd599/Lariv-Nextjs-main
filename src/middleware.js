@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextResponse } from "next/server"; 
 import { VerifyToken } from "@/utility/JWTTokenHelper";
 
 export async function middleware(req, res) {

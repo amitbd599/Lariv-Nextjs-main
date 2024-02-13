@@ -1,4 +1,4 @@
-import Swal from "sweetalert2";
+import Swal from "sweetalert2"; 
 import client_api from "./api_fetch_fun";
 
 export const DeleteAlert = (api) => {

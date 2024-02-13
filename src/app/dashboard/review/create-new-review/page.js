@@ -1,4 +1,4 @@
-export const revalidate = 0;
+export const revalidate = 0; 
 import CreateNewReviewComponent from "@/components/CreateNewReviewComponent";
 import DashboardMasterLayout from "@/layout/DashboardMasterLayout";
 

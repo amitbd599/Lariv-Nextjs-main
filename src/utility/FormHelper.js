@@ -1,4 +1,4 @@
-import toast from "react-hot-toast";
+import toast from "react-hot-toast"; 
 let EmailRegx = /\S+@\S+\.\S+/;
 
 class FormHelper {

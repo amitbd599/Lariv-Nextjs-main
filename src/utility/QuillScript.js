@@ -1,4 +1,4 @@
-class data {
+class data { 
   formats = [
     "header",
     "font",

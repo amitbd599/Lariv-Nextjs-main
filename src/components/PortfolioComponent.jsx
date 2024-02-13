@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"; 
 import { FaCodeMerge } from "react-icons/fa6";
 import Link from "next/link";
 const PortfolioComponent = ({ data }) => {

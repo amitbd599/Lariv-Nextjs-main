@@ -1,4 +1,4 @@
-export const revalidate = 0;
+export const revalidate = 0; 
 import { Inter } from "next/font/google";
 import "swiper/css";
 import "swiper/css/navigation";

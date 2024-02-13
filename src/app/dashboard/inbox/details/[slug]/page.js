@@ -1,4 +1,4 @@
-'use client'
+'use client' 
 import DashboardMasterLayout from '@/layout/DashboardMasterLayout';
 import client_api from '@/utility/api_fetch_fun';
 import React, { useEffect, useState } from 'react'

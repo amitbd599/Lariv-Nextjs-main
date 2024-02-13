@@ -1,5 +1,5 @@
 import { Progress, Typography } from "../helpers/MaterialTailwind.js";
-import React from "react";
+import React from "react"; 
 import {
   FaFacebookF,
   FaGitAlt,

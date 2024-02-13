@@ -1,4 +1,4 @@
-
+ 
 class api_fetch_fun {
 
   async register(obj) {
