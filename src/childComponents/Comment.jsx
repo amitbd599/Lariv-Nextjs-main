@@ -1,4 +1,4 @@
-"use client"; 
+"use client";
 import React from "react";
 import { useState, useRef } from "react";
 import SubmitButton from "@/childComponents/SubmitButton";
@@ -18,8 +18,9 @@ const Comment = ({ id }) => {
     let comment = commentRef.value;
     let blogId = parseInt(id);
 
-    client_api.create("/api/dashboard/comment/create", { name, email, comment, blogId }).then(
-      (res) => {
+    client_api
+      .create("/api/user/comment/create", { name, email, comment, blogId })
+      .then((res) => {
         if (res.status === true) {
           SuccessToast("Comment create success!");
           setSubmit(false);
@@ -27,8 +28,7 @@ const Comment = ({ id }) => {
           ErrorToast("Something Went Wrong");
           setSubmit(false);
         }
-      }
-    );
+      });
 
     nameRef.value = "";
     emailRef.value = "";

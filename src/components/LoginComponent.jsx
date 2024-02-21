@@ -1,4 +1,4 @@
-"use client"; 
+"use client";
 import SubmitButton from "@/childComponents/SubmitButton";
 import {
   ErrorToast,
@@ -52,9 +52,8 @@ const LoginComponent = ({ data }) => {
           ErrorToast("Login fail");
           setSubmit(false);
         }
-      })
+      });
     }
-
   };
 
   return (

@@ -1,5 +1,5 @@
 import { Progress, Typography } from "../helpers/MaterialTailwind.js";
-import React from "react"; 
+import React from "react";
 import {
   FaFacebookF,
   FaGitAlt,
@@ -212,7 +212,7 @@ const AboutComponent = async ({ data }) => {
                   <FaGripfire className="absolute left-[-16px] top-[-25px] text-[30px] text-text" />
 
                   {skill_data?.map((item, index) => (
-                    <div>
+                    <div key={index}>
                       <p className="text-text">{item?.time_section}</p>
                       <h3 className="mt-[10px] text-[20px] font-medium text-white md:text-[25px]">
                         {item?.title}
