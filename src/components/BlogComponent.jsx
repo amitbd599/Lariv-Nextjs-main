@@ -1,4 +1,4 @@
-"use client"; 
+"use client";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { FaBlog, FaClockRotateLeft, FaRegCommentDots } from "react-icons/fa6";
@@ -15,18 +15,17 @@ const BlogComponent = ({ page, data }) => {
   let perPage = 6;
   useEffect(() => {
     const fetchData = async () => {
-      await client_api.get(`/api/dashboard/blog/read-pagination?page=${parseInt(page)}`).then((res) => {
-        if (res) {
-          setBlog(res?.data?.blog);
-          setTotalBlog(res?.data?.totalBlogCount);
-        }
-      });
+      await client_api
+        .get(`/api/user/blog/read-pagination?page=${parseInt(page)}`)
+        .then((res) => {
+          if (res) {
+            setBlog(res?.data?.blog);
+            setTotalBlog(res?.data?.totalBlogCount);
+          }
+        });
     };
     fetchData();
   }, []);
-
-
-
 
   const handelPageClick = async (event) => {
     let pageNo = await event.selected;
